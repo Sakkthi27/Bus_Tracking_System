@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="static/assets/css/loginbootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/css/loginstyle.css">
+
+    <title>Signup Page</title>
+  </head>
+  <body>
+    {% if messages %}
+        {% for message in messages %}
+        
+        <script>
+            alert("{{ message }}");
+        </script>
+        
+        {% endfor %}
+    {% endif %}
+    <div class="page d-flex justify-content-center">
+    <div class="container bg-light">
+      <div class="col main-row">
+        <!--
+        <div class="col-md-6 d-flex main-svg">
+          <img class="svg-img" src="assests/Book-reading.svg" alt="Image" class="img-fluid">
+        </div> 
+        -->
+        <div class="row-md-6 d-flex main-content">
+          <div class="row">
+            <div class="col-md-11">
+              <div class="mb-4">
+              <h2 class="display-3 text-center">Welcome<span style="color: #385170;">!</span></h2>
+              <p class="mb-4">Create a new account to unlock the full potential of this website. If you already have an account, you can <a href="/signin"><strong>Sign In</strong></a>.</p>
+            </div>
+            <form action="/signup" method="POST">
+            {% csrf_token %}
+              <div class="form-group first">
+                <label for="fname">Full Name</label>
+                <input type="text" class="form-control" id="fname" name="fullName" placeholder="Name" required>
+              </div>
+
+              <div class="form-group first">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="userName" placeholder="UserName" required>
+              </div>
+
+              <div class="form-group first">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+              </div>
+
+              <div class="form-group last mb-4">
+                <label for="Newpassword">New Password</label>
+                <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Password" required>
+              </div>
+
+            
+              <div class="form-group last mb-4">
+                <label for="conpassword">Confirm Password</label>
+                <input type="password" class="form-control" id="conPassword" name="conPassword" placeholder="Confirm Password" required>
+              </div>
+            
+              <input type="submit" value="Sign Up" class="btn text-white btn-block">
+
+              <span class="d-block text-center my-4 text-muted"> or Sign Up with</span>
+              
+              <div class="social-login text-center">
+                <a href="#" class="facebook">
+                  <span class="icon-facebook mr-3"></span> 
+                </a>
+                <a href="#" class="twitter">
+                  <span class="icon-twitter mr-3"></span> 
+                </a>
+                <a href="#" class="google">
+                  <span class="icon-google mr-3"></span> 
+                </a>
+              </div>
+            </form>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </body>
+</html>
