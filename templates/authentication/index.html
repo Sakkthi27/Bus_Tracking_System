@@ -10,36 +10,36 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../static/assets/img/hrtclogo.png" rel="icon">
-  <link href="../static/assets/img/hrtclogo.png" rel="apple-touch-icon">
+  <link href="assets/img/hrtclogo.png" rel="icon">
+  <link href="assets/img/hrtclogo.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="static/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="static/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
   <!-- Template Main CSS File -->
-  <link href="static/assets/css/style.css" rel="stylesheet">sss
+  <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 {% if messages %}
         {% for message in messages %}
-        
+
         <script>
             alert("{{ message }}");
         </script>
-        
+
         {% endfor %}
   {% endif %}
 <!-- ======= Header ======= -->
@@ -83,8 +83,8 @@
         <span>Home</span>
       </a>
     </li>
-    
-    
+
+
     <!-- End Dashboard Nav -->
 
     <li class="nav-heading">Travel</li>
@@ -95,8 +95,8 @@
         <span>Trip Planner</span>
       </a>
     </li>
-    
-    
+
+
     <!-- End Profile Page Nav -->
 
     <li class="nav-item">
@@ -150,15 +150,15 @@
 </aside><!-- End Sidebar-->
 
 <main id="main" class="main">
-  
+
   <div class="row-pagetitle">
     <h1>Home</h1>
-    
+
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
-        
+
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -236,84 +236,200 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="../static/assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../static/assets/vendor/chart.js/chart.umd.js"></script>
-<script src="../static/assets/vendor/echarts/echarts.min.js"></script>
-<script src="../static/assets/vendor/quill/quill.min.js"></script>
-<script src="../static/assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="../static/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="../static/assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.min.js"></script>
+<script src=".assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
 
 <!-- Template Main JS File -->
-<script src="../static/assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPAuO-UMFC96BbZiVki6xn371eq0qMM0&libraries=places"></script>-->
 
 <script>
-  function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: 0, lng: 0 },
-      zoom: 16
-    });
+        // Initialize and display the map
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 13.049890, lng: 80.079025}, // Initial position
+                zoom: 16
+            });
 
-    if (navigator.geolocation) {
-      var options = {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0
-      };
+            // Define the path for the first route
+            var pathCoordinates1 = [
+                {lat: 13.047280, lng: 80.080616}, // Starting point
+                {lat: 13.047166, lng: 80.080187}, // Point 1
+                {lat: 13.047065, lng: 80.079692}, // Point 2
+                {lat: 13.047015, lng: 80.079240}, // Point 3
+                {lat: 13.046916, lng: 80.076443}, // ...
+                {lat: 13.046889, lng: 80.075435},
+                {lat: 13.046778, lng: 80.074795},
+                {lat: 13.046637, lng: 80.074427},
+                {lat: 13.046407, lng: 80.073941},
+                {lat: 13.046167, lng: 80.073354},
+                {lat: 13.046045, lng: 80.072993},
+                {lat: 13.045965, lng: 80.072241},
+                {lat: 13.045888, lng: 80.071499},
+                {lat: 13.045853, lng: 80.071354}, // Final point
+                {lat: 13.045754, lng: 80.070983},
+                {lat: 13.045489, lng: 80.070103},
+                {lat: 13.044036, lng: 80.065047},
+                {lat: 13.043851, lng: 80.064516}
+            ];
 
-      navigator.geolocation.getCurrentPosition(
-        function (position) {
-          var userLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
+            // Define the path for the second route
+            // Add more paths as needed
+            var pathCoordinates2 = [
+                {lat: 13.052840, lng: 80.082484}, // Starting point
+                {lat: 13.047762, lng: 80.084395},// ,
+                {lat: 13.047568, lng: 80.084560}, //,
+                {lat: 13.047415, lng: 80.084732}, //,
+                {lat: 13.047301, lng: 80.084931}, //,
+                {lat: 13.047286, lng: 80.085212} ,//,
+                {lat: 13.047339, lng: 80.085427} ,//,
+                {lat: 13.047430, lng: 80.085583} ,//,
+                {lat: 13.047753, lng: 80.085833} ,//,
+                {lat: 13.048130, lng: 80.085833} ,//,
+                {lat: 13.048244, lng: 80.085790} ,//,
+                {lat: 13.048442, lng: 80.085622} ,//,
+                {lat: 13.048571, lng: 80.085439} ,//,
+                {lat: 13.048613, lng: 80.085263} ,//,
+                {lat: 13.048602, lng: 80.085127} ,//,
+                {lat: 13.048666, lng: 80.085048} ,//,
+                {lat: 13.048446, lng: 80.084240} ,//,
+                {lat: 13.048040, lng: 80.083184} ,//,
+                {lat: 13.047360, lng: 80.081009} ,//,
+                {lat: 13.047159, lng: 80.080206} //,
+            ];
+             var pathCoordinates3 = [
+                {lat: 13.048886, lng: 80.067128}, // Starting point
+                {lat: 13.046100, lng: 80.069709}, // Point 1
+                {lat: 13.045611, lng: 80.070434}, //,
+                {lat: 13.046045, lng: 80.071622}, //,
+                {lat: 13.046171, lng: 80.072747}, //,
+                {lat: 13.046273, lng: 80.073253}, //,
+                {lat: 13.046651, lng: 80.074107}, //,
+                {lat: 13.046920, lng: 80.074737}, //,
+                {lat: 13.047041, lng: 80.075564}, //,
+                {lat: 13.047105, lng: 80.078388}, //,
+                {lat: 13.047163, lng: 80.079465}, //,
+                {lat: 13.047273, lng: 80.080093}, //,
+                {lat: 13.047472, lng: 80.080789}, //,
+                {lat: 13.047630, lng: 80.081457}, //,
+                {lat: 13.047779, lng: 80.081948}, //,
+                {lat: 13.047977, lng: 80.082576}, //,
+                {lat: 13.048186, lng: 80.083118}, //,
+                {lat: 13.048639, lng: 80.084260}, //,
+                {lat: 13.048845, lng: 80.084758}, //,
+                {lat: 13.049062, lng: 80.085878} //,
+            ];
+            var pathCoordinates4 = [
+                {lat: 13.048918, lng: 80.086531}, // Starting point
+                {lat: 13.048949, lng: 80.087073}, // Point 1
+                {lat: 13.049043, lng: 80.087620}, //,,
+                {lat: 13.049059, lng: 80.087808}, //,,
+                {lat: 13.049347, lng: 80.088146}, //,,
+                {lat: 13.049606, lng: 80.088482}, //,,
+                {lat: 13.050513, lng: 80.089058}, //,,
+                {lat: 13.051545, lng: 80.089616}
+            ];
 
-          map.setCenter(userLocation);
 
-          var marker = new google.maps.Marker({
-            position: userLocation,
-            map: map,
-            title: 'Your Location'
-          });
+            // Add the first bus marker
+            var busMarker1 = new google.maps.Marker({
+                position: pathCoordinates1[0], // Start at the first point
+                map: map,
+                icon: {
+                    url: 'assets/img/bus_icon.png', // Path to your bus icon
+                    scaledSize: new google.maps.Size(40, 40) // Adjust the size as needed
+                }
+            });
+            var busMarker2 = new google.maps.Marker({
+                position: pathCoordinates2[0], // Start at the first point
+                map: map,
+                icon: {
+                    url: 'assets/img/bus_icon.png', // Path to your bus icon
+                    scaledSize: new google.maps.Size(40, 40) // Adjust the size as needed
+                }
+            });
+            var busMarker3 = new google.maps.Marker({
+                position: pathCoordinates3[0], // Start at the first point
+                map: map,
+                icon: {
+                    url: 'assets/img/bus_icon.png', // Path to your bus icon
+                    scaledSize: new google.maps.Size(40, 40) // Adjust the size as needed
+                }
+            });
+            var busMarker4 = new google.maps.Marker({
+                position: pathCoordinates4[0], // Start at the first point
+                map: map,
+                icon: {
+                    url: 'assets/img/bus_icon.png', // Path to your bus icon
+                    scaledSize: new google.maps.Size(40, 40) // Adjust the size as needed
+                }
+            });
 
-          var circle = new google.maps.Circle({
-            strokeColor: '#00ADB5',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#00ADB5',
-            fillOpacity: 0.35,
-            map: map,
-            center: userLocation,
-            radius: position.coords.accuracy / 3.5
-          });
-        },
-        function (error) {
-          console.error('Error getting user location:', error);
-          alert('Error getting user location. Please enable location services.');
-        },
-        options
-      );
-    } else {
-      alert('Geolocation is not supported by your browser or denied by the user.');
-    }
-  }
+            // Add the second bus marker
+            // Add more markers as needed
 
-  function loadGoogleMapsScript() {
-    var script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPAuO-UMFC96BbZiVki6xn371eq0qMM0&libraries=places&callback=initMap';
-    script.defer = true;
-    script.async = true;
+            // Function to move the bus along a path
+            function moveBusAlongPath(busMarker, path, duration) {
+                var index = 0;
+                var start = new Date().getTime();
+                var totalDistance = google.maps.geometry.spherical.computeLength(path);
+                var speed = totalDistance / duration;
 
-    document.head.appendChild(script);
-  }
+                function animateBus() {
+                    var now = new Date().getTime();
+                    var elapsed = now - start;
+                    var distance = elapsed * speed;
 
-  window.onload = function () {
-    loadGoogleMapsScript();
-  };
-</script>
+                    // Calculate the total length of the path
+                    var totalLength = google.maps.geometry.spherical.computeLength(path);
+
+                    // Calculate the fraction of the total distance covered
+                    var fraction = distance / totalLength;
+
+                    // Find the segment of the path that the bus is currently on
+                    var currentDistance = totalLength * fraction;
+                    var currentIndex = 0;
+                    var currentLength = 0;
+                    while (currentIndex < path.length - 1 && currentLength + google.maps.geometry.spherical.computeDistanceBetween(path[currentIndex], path[currentIndex + 1]) < currentDistance) {
+                        currentLength += google.maps.geometry.spherical.computeDistanceBetween(path[currentIndex], path[currentIndex + 1]);
+                        currentIndex++;
+                    }
+
+                    // Calculate the position of the bus along the current segment
+                    var segmentFraction = (currentDistance - currentLength) / google.maps.geometry.spherical.computeDistanceBetween(path[currentIndex], path[currentIndex + 1]);
+                    var newPosition = google.maps.geometry.spherical.interpolate(path[currentIndex], path[currentIndex + 1], segmentFraction);
+
+                    // Update the position of the bus marker
+                    busMarker.setPosition(newPosition);
+
+                    // Continue animating if not reached the end of the path
+                    if (elapsed < duration) {
+                        requestAnimationFrame(animateBus);
+                    }
+                }
+
+
+                animateBus();
+            }
+
+            // Example: Move the first bus along the first path in 150 seconds
+            moveBusAlongPath(busMarker1, pathCoordinates1, 200000);
+            moveBusAlongPath(busMarker2, pathCoordinates2, 200000);
+            moveBusAlongPath(busMarker3, pathCoordinates3, 154000);
+            moveBusAlongPath(busMarker4, pathCoordinates4, 200000);
+            // Example: Move the second bus along the second path in 150 seconds
+            // Add more function calls as needed
+
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPAuO-UMFC96BbZiVki6xn371eq0qMM0&libraries=geometry&callback=initMap" async defer></script>
 
 </body>
 

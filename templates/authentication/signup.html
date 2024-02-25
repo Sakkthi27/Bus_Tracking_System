@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="static/assets/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="static/assets/css/loginbootstrap.min.css">
-    <link rel="stylesheet" href="static/assets/css/loginstyle.css">
+    <link rel="stylesheet" href="assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="assets/css/loginbootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/loginstyle.css">
 
     <title>Signup Page</title>
   </head>
   <body>
     {% if messages %}
         {% for message in messages %}
-        
+
         <script>
             alert("{{ message }}");
         </script>
-        
+
         {% endfor %}
     {% endif %}
     <div class="page d-flex justify-content-center">
@@ -28,7 +28,7 @@
         <!--
         <div class="col-md-6 d-flex main-svg">
           <img class="svg-img" src="assests/Book-reading.svg" alt="Image" class="img-fluid">
-        </div> 
+        </div>
         -->
         <div class="row-md-6 d-flex main-content">
           <div class="row">
@@ -59,31 +59,31 @@
                 <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Password" required>
               </div>
 
-            
+
               <div class="form-group last mb-4">
                 <label for="conpassword">Confirm Password</label>
                 <input type="password" class="form-control" id="conPassword" name="conPassword" placeholder="Confirm Password" required>
               </div>
-            
+
               <input type="submit" value="Sign Up" class="btn text-white btn-block">
 
               <span class="d-block text-center my-4 text-muted"> or Sign Up with</span>
-              
+
               <div class="social-login text-center">
                 <a href="#" class="facebook">
-                  <span class="icon-facebook mr-3"></span> 
+                  <span class="icon-facebook mr-3"></span>
                 </a>
                 <a href="#" class="twitter">
-                  <span class="icon-twitter mr-3"></span> 
+                  <span class="icon-twitter mr-3"></span>
                 </a>
                 <a href="#" class="google">
-                  <span class="icon-google mr-3"></span> 
+                  <span class="icon-google mr-3"></span>
                 </a>
               </div>
             </form>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>

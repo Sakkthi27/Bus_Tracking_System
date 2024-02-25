@@ -13,7 +13,7 @@ from . tokens import generate_token
 from django.utils.http import urlsafe_base64_decode,urlsafe_base64_encode
 from django.urls import reverse
 
-# Create your views here.
+# Create your views here. templates/
 def index(request):
     return render(request,"authentication/index.html")
 
@@ -47,15 +47,15 @@ def signup(request):
 
         # welcome mail
 
-        subject = "Welcome to XYZ"
-        message = "Hello" + fname + "\n Welcome to XYZ \n your account has been successfully created \n A  Confirmation mail has been Sent to this mail Kindly verify using that link \n Thank you"
+        subject = "Welcome to ROUTE EXPRESS"
+        message = "Hello " + fname + "\n Welcome to ROUTE EXPRESS \n your account has been successfully created. \n Thank you for Using our website"
         from_mail=settings.EMAIL_HOST_USER
         to_list = [myuser.email]
         send_mail(subject,message,from_mail,to_list,fail_silently=True)
 
         return redirect('signin')
-        
-    
+
+
     return render(request,"authentication/signup.html")
 
 
@@ -72,11 +72,11 @@ def signin(request):
         if user is not None:
             login(request,user)
             return render(request,"authentication/index.html")
-        
+
         else:
             messages.error(request,"Bad Request!")
             return redirect('index')
-        
+
 
 
     return render(request,"authentication/login.html")
