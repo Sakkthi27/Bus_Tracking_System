@@ -12,6 +12,7 @@ from btn import settings
 from . tokens import generate_token
 from django.utils.http import urlsafe_base64_decode,urlsafe_base64_encode
 from django.urls import reverse
+import serial
 
 # Create your views here. templates/
 def index(request):
